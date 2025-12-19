@@ -40,29 +40,29 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 # Workflow
-mini-rag-automobile-assistant/
-│
-├── data/
-│ ├── raw_docs # Owner manuals, DTC documents
-│ ├── processed_docs # Cleaned & chunked text
-│
-├── embeddings
-│ ├── embedder.py # Hugging Face embedding logic
-│
-├── vector_store
-│ ├── faiss_index # Stored FAISS index
-│ ├── faiss_utils.py
-│
-├── retriever
-│ ├── retriever.py # Similarity search logic
-│
-├── rag_pipeline
-│ ├── rag_chain.py # End-to-end RAG pipeline
-│
-├── app/
-│ ├── api.py # Query interface (FastAPI/Flask)
-│
-├── deployment
+mini-rag-automobile-assistant
+
+Data
+raw_docs # Owner manuals, DTC documents
+processed_docs # Cleaned & chunked text
+
+Embeddings
+embedder.py # Hugging Face embedding logic
+
+Vector_store
+faiss_index # Stored FAISS index
+faiss_utils.py
+
+Retriever
+retriever.py # Similarity search logic
+
+rag_pipeline
+rag_chain.py # End-to-end RAG pipeline
+
+app
+api.py # Query interface (FastAPI/Flask)
+
+ deployment
 
 # Document Ingestion
 - Upload automobile-related documents:
