@@ -3,7 +3,7 @@ A mini chatboat assistant that can answers question based on given documents..
 
 Automobile Domain Mini RAG-Powered Assistant
 
-This repository contains a Mini Retrieval-Augmented Generation (RAG) Assistant designed for the automobile domain. The system enables intelligent question-answering over automobile-related documents such as vehicle owner manuals and diagnostic trouble codes (DTCs) using Hugging Face embeddings and FAISS vector search.
+This repository contains a Mini Retrieval-Augmented Generation (RAG) Assistant designed for the automobile domain. The system enables intelligent question-answering over automobile-related documents such as "vehicle owner manuals" and "diagnostic trouble codes (DTCs)" using Hugging Face embeddings and FAISS vector search.
 
 
 
