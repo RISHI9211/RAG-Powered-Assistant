@@ -80,13 +80,11 @@ streamlit run app.py
 * "Give me the torque specifications for the cylinder head bolts."
 
 ##  Chalanges Faced 
-* Cloud platform and payments constraints(Azure OpenAI)
+#Cloud platform and payments constraints(Azure OpenAI)
 - Used streamlit for UI instead of Azure.
-* Large Pdf(over 300 pages)
+#Large Pdf(over 300 pages)
 -  Tuned chunking strategy.
-
-## ⚖️ License
-
-Distributed under the MIT License.
+#Difficulty in Multiple pdfs(more than 2)
+- 
 
 ---
