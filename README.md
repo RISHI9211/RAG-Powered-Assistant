@@ -26,7 +26,7 @@ The assistant processes automobile documents, converts them into vector embeddin
 - Vector Database: FAISS  
 - LLM: Open-source / API-based LLM (configurable)  
 - Document Formats: PDF, DOCX, TXT  
-- Cloud Deployment: Renders
+- Cloud Deployment: Render
 
 
 
@@ -90,7 +90,7 @@ api.py # Query interface (FastAPI/Flask)
 
 # Deployment
 
-- Deployable on: Azure App Service
+- Deployable on: Render Service
 
 
 
