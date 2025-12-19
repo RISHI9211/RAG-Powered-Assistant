@@ -56,13 +56,13 @@ faiss_utils.py
 Retriever
 retriever.py # Similarity search logic
 
-rag_pipeline
+Rag_pipeline
 rag_chain.py # End-to-end RAG pipeline
 
-app
+App
 api.py # Query interface (FastAPI/Flask)
 
- deployment
+Deployment
 
 # Document Ingestion
 - Upload automobile-related documents:
