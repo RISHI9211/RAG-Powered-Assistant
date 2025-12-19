@@ -79,6 +79,12 @@ streamlit run app.py
 * "What does DTC P0300 mean and what are the possible causes?"
 * "Give me the torque specifications for the cylinder head bolts."
 
+##  Chalanges Faced 
+* Cloud platform and payments constraints(Azure OpenAI)
+  Used streamlit for UI instead of Azure.
+* Large Pdf
+  Churn chunking strategy.
+
 ## ⚖️ License
 
 Distributed under the MIT License.
