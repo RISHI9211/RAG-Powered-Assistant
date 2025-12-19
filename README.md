@@ -19,11 +19,6 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 
-# System Architecture
-
-
-
-
 #  Tech Stack
 
 - Programming Language: Python  
@@ -42,27 +37,27 @@ The assistant processes automobile documents, converts them into vector embeddin
 # Workflow
 mini-rag-automobile-assistant
 
-Data
+- Data
 raw_docs # Owner manuals, DTC documents
 processed_docs # Cleaned & chunked text
 
-Embeddings
+- Embeddings
 embedder.py # Hugging Face embedding logic
 
-Vector_store
+- Vector_store
 faiss_index # Stored FAISS index
 faiss_utils.py
 
-Retriever
+- Retriever
 retriever.py # Similarity search logic
 
-Rag_pipeline
+- Rag_pipeline
 rag_chain.py # End-to-end RAG pipeline
 
-App
+- App
 api.py # Query interface (FastAPI/Flask)
 
-Deployment
+- Deployment
 
 # Document Ingestion
 - Upload automobile-related documents:
