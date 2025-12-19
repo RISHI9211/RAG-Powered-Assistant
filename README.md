@@ -31,7 +31,93 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 #  Project Structure
-
+<invoke name="artifacts">
+<parameter name="command">update</parameter>
+<parameter name="id">auto_rag_readme</parameter>
+<parameter name="old_str">├── app.py                      # Flask application
+├── main.py                     # FastAPI application
+├── requirements.txt            # Python dependencies
+├── Dockerfile                </parameter>
+<parameter name="new_str">├── app.py                      # Flask application
+├── main.py                     # FastAPI application
+├── requirements.txt            # Python dependencies
+├── Dockerfile                  # Container configuration
+├── .env                        # Environment variables (not in git)
+├── .gitignore                  # Git ignore file
+├── README.md                   # This file
+│
+├── src/                        # Source code
+│   ├── __init__.py
+│   ├── embeddings.py          # HuggingFace embedding generation
+│   ├── vectorstore.py         # FAISS vector database operations
+│   ├── chunking.py            # Document chunking logic
+│   ├── llm.py                 # LLM integration (OpenAI/Llama)
+│   ├── preprocessing.py       # PDF/text extraction & cleaning
+│   └── utils.py               # Utility functions
+│
+├── scripts/                    # Utility scripts
+│   ├── index_documents.py     # Process and index documents
+│   ├── test_queries.py        # Test query examples
+│   └── clear_index.py         # Clear FAISS index
+│
+├── data/                       # Data directory
+│   ├── documents/             # Raw automobile documents
+│   │   ├── manuals/           # Owner manuals
+│   │   ├── dtc_codes/         # Diagnostic trouble codes
+│   │   └── service/           # Service schedules
+│   ├── processed/             # Processed chunks
+│   └── faiss_index/           # FAISS vector index files
+│
+├── api/                        # API routes
+│   ├── __init__.py
+│   ├── query.py               # Query endpoint
+│   ├── upload.py              # Upload endpoint
+│   └── stats.py               # Statistics endpoint
+│
+├── models/                     # Model definitions
+│   ├── __init__.py
+│   ├── query_model.py         # Query request/response models
+│   └── document_model.py      # Document metadata models
+│
+├── config/                     # Configuration files
+│   ├── __init__.py
+│   ├── settings.py            # App settings
+│   └── prompts.py             # LLM prompts
+│
+├── tests/                      # Unit tests
+│   ├── test_embeddings.py
+│   ├── test_vectorstore.py
+│   ├── test_chunking.py
+│   └── test_api.py
+│
+├── deployment/                 # Deployment configs
+│   ├── docker-compose.yml     # Local Docker setup
+│   ├── kubernetes/            # K8s manifests
+│   │   ├── deployment.yaml
+│   │   └── service.yaml
+│   └── terraform/             # Infrastructure as Code
+│       ├── main.tf
+│       └── variables.tf
+│
+├── frontend/                   # Optional React frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── QueryInput.jsx
+│   │   │   ├── AnswerDisplay.jsx
+│   │   │   └── DocumentUpload.jsx
+│   │   ├── App.jsx
+│   │   └── index.js
+│   └── package.json
+│
+├── docs/                       # Documentation
+│   ├── architecture.md        # Detailed architecture
+│   ├── api_guide.md           # API documentation
+│   └── deployment_guide.md    # Deployment instructions
+│
+└── logs/                       # Application logs
+    └── app.log
+```</parameter>
 # Workflow
 mini-rag-automobile-assistant
 
