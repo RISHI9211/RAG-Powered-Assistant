@@ -40,29 +40,30 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 # Workflow
-graph TD
-    %% Phase 1: Ingestion
-    subgraph Ingestion_Phase [1. Document Ingestion]
-        A[📄 Documents Upload] --> B[🧹 Text Extraction & Cleaning]
-        B --> C[✂️ Chunking <br/> 500-800 chars]
-        C --> D[🔢 HuggingFace Embeddings]
-        D --> E[(📚 FAISS Vector Database)]
-    end
+mini-rag-automobile-assistant/
+│
+├── data/
+│ ├── raw_docs # Owner manuals, DTC documents
+│ ├── processed_docs # Cleaned & chunked text
+│
+├── embeddings
+│ ├── embedder.py # Hugging Face embedding logic
+│
+├── vector_store
+│ ├── faiss_index # Stored FAISS index
+│ ├── faiss_utils.py
+│
+├── retriever
+│ ├── retriever.py # Similarity search logic
+│
+├── rag_pipeline
+│ ├── rag_chain.py # End-to-end RAG pipeline
+│
+├── app/
+│ ├── api.py # Query interface (FastAPI/Flask)
+│
+├── deployment
 
-    %% Phase 2: Retrieval
-    subgraph Query_Phase [2. Query & Generation]
-        F[❓ User Query] --> G[🔢 Query Embedding]
-        G --> H{🔍 Similarity Search}
-        E -.->|Search Index| H
-        H --> I[🔗 Context + Prompt Construction]
-        I --> J[🧠 LLM GPT Generation]
-        J --> K[✨ Final Answer + Citations]
-    end
-
-    %% Styling
-    style E fill:#f9f,stroke:#333,stroke-width:2px
-    style J fill:#bbf,stroke:#333,stroke-width:2px
-    style K fill:#bfb,stroke:#333,stroke-width:2px
 # Document Ingestion
 - Upload automobile-related documents:
   Vehicle owner manuals
