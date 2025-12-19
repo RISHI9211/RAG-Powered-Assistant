@@ -6,7 +6,6 @@ from backend import AutomobileRAG
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="AutoSpec Pro | AI Workshop Assistant",
-    page_icon="🛠️",
     layout="wide"
 )
 
@@ -73,7 +72,7 @@ if "rag_engine" not in st.session_state:
 
 # --- SIDEBAR: MULTI-FILE UPLOAD ---
 with st.sidebar:
-    st.header("🛠️ Workshop Console")
+    st.header(" Workshop Console")
     # Change to accept_multiple_files=True
     uploaded_files = st.file_uploader(
         "Upload Manuals (PDF)", 
@@ -89,7 +88,7 @@ with st.sidebar:
         for uploaded_file in uploaded_files:
             # Index each file ONLY if it hasn't been processed yet
             if uploaded_file.name not in st.session_state.indexed_files:
-                with st.status(f"🛠️ Indexing {uploaded_file.name}...", expanded=False) as status:
+                with st.status(f" Indexing {uploaded_file.name}...", expanded=False) as status:
                     with tempfile.NamedTemporaryFile(delete=False) as tmp:
                         tmp.write(uploaded_file.getvalue())
                         path = tmp.name
@@ -101,13 +100,13 @@ with st.sidebar:
                     st.session_state.indexed_files.add(uploaded_file.name)
                     st.session_state.vectorstore_ready = True 
                     
-                    status.update(label=f"✅ {uploaded_file.name} added!", state="complete")
+                    status.update(label=f" {uploaded_file.name} added!", state="complete")
                     os.remove(path)
             else:
-                st.write(f"✔️ {uploaded_file.name} already in memory.")
+                st.write(f" {uploaded_file.name} already in memory.")
 
     st.divider()
-    if st.button("🗑️ Reset Workshop Memory"):
+    if st.button(" Reset Workshop Memory"):
         st.session_state.chat_history = []
         st.session_state.indexed_files = set()
         st.session_state.vectorstore_ready = False
@@ -133,13 +132,13 @@ if prompt := st.chat_input("Ask a technical question..."):
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            with st.spinner("🔧 Analyzing vehicle data..."):
+            with st.spinner(" Analyzing vehicle data..."):
                 response = st.session_state.rag_engine.get_response(prompt)
                 answer = response["answer"]
                 
                 st.markdown(f'<div class="result-card">{answer}</div>', unsafe_allow_html=True)
                 
-                with st.expander("🔍 View Technical Sources"):
+                with st.expander(" View Technical Sources"):
                     for doc in response.get("source_documents", []):
                         st.caption(f"**Page {doc.metadata.get('page', 0) + 1}:**")
                         st.info(doc.page_content[:300] + "...")
