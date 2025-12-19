@@ -2,6 +2,10 @@
 
 **AutoSpec Pro** is a specialized Retrieval-Augmented Generation (RAG) assistant designed for the automotive domain. It allows users to upload multiple vehicle owner manuals and Diagnostic Trouble Code (DTC) references to extract detailed technical specifications and troubleshooting steps using AI.
 
+### 🌐 Live Demo
+
+**[Click here to access the live app](https://rag-powered-assistant.streamlit.app/)** *(Note: Please ensure you have your API keys ready to use the assistant if prompted.)*
+
 ## 🌟 Key Features
 
 * **Multi-PDF Support:** Upload and index multiple service manuals simultaneously.
@@ -13,7 +17,7 @@
 ## 🛠️ Tech Stack
 
 * **Frontend:** [Streamlit](https://streamlit.io/)
-* **LLM:** [Google Gemini 2.0 Flash](https://aistudio.google.com/)
+* **LLM:** [Google Gemini 2.5 Flash](https://aistudio.google.com/)
 * **Embeddings:** [Hugging Face Sentence Transformers](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
 * **Vector Database:** [FAISS (Facebook AI Similarity Search)](https://github.com/facebookresearch/faiss)
 * **Framework:** [LangChain](https://www.langchain.com/)
@@ -25,7 +29,6 @@
 Ensure your GitHub repository has the following structure:
 
 ```text
-├── .venv/               # (Do not upload to GitHub)
 ├── app.py               # Main Streamlit frontend
 ├── backend.py           # RAG logic and processing
 ├── requirements.txt     # Python dependencies
