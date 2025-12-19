@@ -40,7 +40,69 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 # Workflow
-
+┌──────────────┐
+│   Documents  │
+│   (Upload)   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────────┐
+│ Text Extraction  │
+│  & Cleaning      │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│    Chunking      │
+│  (500-800 chars) │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│   HuggingFace    │
+│   Embeddings     │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│  FAISS Vector    │
+│    Database      │
+└──────┬───────────┘
+       │
+       │  ┌─────────────┐
+       │  │ User Query  │
+       │  └──────┬──────┘
+       │         │
+       │         ▼
+       │  ┌──────────────────┐
+       │  │ Query Embedding  │
+       │  └──────┬───────────┘
+       │         │
+       ◄─────────┘
+       │
+       ▼
+┌──────────────────┐
+│ Similarity Search│
+│   (Top-K = 5)    │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│   Context +      │
+│   Prompt         │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│   LLM (GPT)      │
+│   Generation     │
+└──────┬───────────┘
+       │
+       ▼
+┌──────────────────┐
+│  Final Answer    │
+│  + Citations     │
+└──────────────────┘
 # Document Ingestion
 - Upload automobile-related documents:
   Vehicle owner manuals
