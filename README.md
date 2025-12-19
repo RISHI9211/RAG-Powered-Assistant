@@ -1,99 +1,83 @@
-# RAG-Powered-Assistant
-A mini chatboat assistant that can answers question based on given documents..
+# 🏎️ AutoSpec Pro: AI-Powered Automobile Assistant
 
-Automobile Domain Mini RAG-Powered Assistant
+**AutoSpec Pro** is a specialized Retrieval-Augmented Generation (RAG) assistant designed for the automotive domain. It allows users to upload multiple vehicle owner manuals and Diagnostic Trouble Code (DTC) references to extract detailed technical specifications and troubleshooting steps using AI.
 
-This repository contains a Mini Retrieval-Augmented Generation (RAG) Assistant designed for the automobile domain. The system enables intelligent question-answering over automobile-related documents such as "vehicle owner manuals" and "diagnostic trouble codes (DTCs)" using Hugging Face embeddings and FAISS vector search.
+## 🌟 Key Features
 
+* **Multi-PDF Support:** Upload and index multiple service manuals simultaneously.
+* **Detailed Technical Answers:** Custom-tuned prompts ensure the AI provides step-by-step instructions and specific torque/fluid values.
+* **Conversational Memory:** Remembers the context of your previous questions for a natural troubleshooting flow.
+* **Source Citation:** Highlights exactly which page and manual were used to generate the answer.
+* **Workshop-Themed UI:** A high-contrast, professional interface built for workshop environments.
 
+## 🛠️ Tech Stack
 
-# Project Overview
+* **Frontend:** [Streamlit](https://streamlit.io/)
+* **LLM:** [Google Gemini 2.0 Flash](https://aistudio.google.com/)
+* **Embeddings:** [Hugging Face Sentence Transformers](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+* **Vector Database:** [FAISS (Facebook AI Similarity Search)](https://github.com/facebookresearch/faiss)
+* **Framework:** [LangChain](https://www.langchain.com/)
 
-The assistant processes automobile documents, converts them into vector embeddings, stores them in a vector database, and retrieves relevant information to answer user queries accurately.
+## 🚀 Deployment Instructions (Streamlit Cloud)
 
-# Example Queries
-- What is the fuel type for a specific vehicle?
-- What is the engine oil service interval?
-- What type of car insurance is required or recommended?
-- What does a specific diagnostic trouble code (DTC) mean?
+### 1. Prepare Your Repository
 
+Ensure your GitHub repository has the following structure:
 
+```text
+├── .venv/               # (Do not upload to GitHub)
+├── app.py               # Main Streamlit frontend
+├── backend.py           # RAG logic and processing
+├── requirements.txt     # Python dependencies
+└── README.md
 
-#  Tech Stack
+```
 
-- Programming Language: Python  
-- Embeddings: Hugging Face Sentence Transformers  
-- Vector Database: FAISS  
-- LLM: Open-source / API-based LLM (configurable)  
-- Document Formats: PDF, DOCX, TXT  
-- Cloud Deployment: Render
+### 2. Set Up Environment Variables
 
+Since you are deploying to **Streamlit Community Cloud**, do not include your `.env` file. Instead:
 
+1. Go to your app's **Settings** on the Streamlit Cloud Dashboard.
+2. Navigate to **Secrets**.
+3. Add the following:
+```toml
+GOOGLE_API_KEY = "your_gemini_api_key"
+HUGGINGFACEHUB_API_TOKEN = "your_huggingface_token"
 
-#  Project Structure
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/7d04a563-ec05-4a47-99ca-0337e5634fc4" />
-
-
-
-# Workflow
-mini-rag-automobile-assistant
-
-- Data
-raw_docs # Owner manuals, DTC documents
-processed_docs # Cleaned & chunked text
-
-- Embeddings
-embedder.py # Hugging Face embedding logic
-
-- Vector_store
-faiss_index # Stored FAISS index
-faiss_utils.py
-
-- Retriever
-retriever.py # Similarity search logic
-
-- Rag_pipeline
-rag_chain.py # End-to-end RAG pipeline
-
-- App
-api.py # Query interface (FastAPI/Flask)
-
-- Deployment
-
-# Document Ingestion
-- Upload automobile-related documents:
-  Vehicle owner manuals
-  Diagnostic Trouble Code (DTC) references
-- Supported formats: PDF, DOCX, TXT
-
-# Text Preprocessing
-- Text cleaning (remove noise, headers, symbols)
-- Chunking documents into smaller semantic units
-
-# Embedding Generation
-- Generate dense vector embeddings using Hugging Face models
-- Example model:
-
-
-# Vector Storage
-- Store embeddings in FAISS for efficient similarity search
-
-# Query Handling
-- User query is embedded
-- Relevant chunks retrieved from FAISS
-- Context passed to LLM for response generation
-
-#  Response Generation
-- Context-aware answers generated using RAG
+```
 
 
 
-# Deployment
+### 3. Local Installation
 
-- Deployable on: Render Service
+To run this project locally, follow these steps:
 
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/autospec-pro.git
+cd autospec-pro
 
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 
+# Install dependencies
+pip install -r requirements.txt
 
+# Run the app
+streamlit run app.py
 
+```
 
+## 📋 Example Queries
+
+* "What is the engine oil capacity and grade for a 2014 F-150?"
+* "Describe the step-by-step procedure for replacing front brake pads."
+* "What does DTC P0300 mean and what are the possible causes?"
+* "Give me the torque specifications for the cylinder head bolts."
+
+## ⚖️ License
+
+Distributed under the MIT License.
+
+---
