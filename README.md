@@ -31,7 +31,8 @@ The assistant processes automobile documents, converts them into vector embeddin
 
 
 #  Project Structure
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/bb3c1c03-c1cc-4ed0-ac56-eaf4bd5d6f80" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/7d04a563-ec05-4a47-99ca-0337e5634fc4" />
+
 
 
 # Workflow
